@@ -45,10 +45,10 @@ RETURN
 ```
 
 ### Step 3: Establish one to many relationships between tables as shown:
-<img src="/img/Total_Relationship.jpg" width="200px" style="border: 1px solid #ee6e73;" />
+<img src="/img/Total_Relationship.jpg" width="600px" style="border: 1px solid #ee6e73;" />
 
 ### Step 5: Drag and drop table or chart visuals. You’re all set!
-<img src="/img/Total_graph.jpg" width="200px" style="border: 1px solid #ee6e73;" />
+<img src="/img/Total_graph.jpg" width="500px" style="border: 1px solid #ee6e73;" />
 
 
 Clink this link to download .pbix file. [Adding_Total_Bar.pbix](https://github.com/MishraSubash/MishraSubash.github.io/blob/main/support/Add_Total_Bar.pbix?raw=true)
