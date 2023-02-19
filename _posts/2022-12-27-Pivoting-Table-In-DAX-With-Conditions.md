@@ -10,11 +10,11 @@ Assuming we have a data of bank balances by bank and account type, our goal is t
 
 In order to do that, first we need to pivot data by bankgroup and accountype. Then we only sum positive balance which means replace negative balance by 0 then sum it up. The data would look like this: 
 
-<img src="/img/Pivot_FirstPivot.jpg" width="1000px" style="border: 1px solid #ee6e73;" /></center></a>
+<img src="/img/Pivot_FirstPivot.jpg" width="1200px" style="border: 1px solid #ee6e73;" /></center></a>
 
 Again, re-run one more pivot table to aggregate bank balance by bank group. The final output would be 
 
-<img src="/img/Pivot_FinalOutPut.jpg" width="400px" style="border: 1px solid #ee6e73;" /></center></a>
+<img src="/img/Pivot_FinalOutPut.jpg" width="350px" style="border: 1px solid #ee6e73;" /></center></a>
 
 If you’re following so far, we have understood the problem statement as well as solution workflows. Now, we are going to write a single DAX function to perform pivot table operation as mentioned above. 
 
