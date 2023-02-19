@@ -13,7 +13,7 @@ Calculating running total using M-Language is tricky and comparatively harder to
 Before computing rolling sum, make sure you sort the data in your preferred (Ascending/Descending) order. Adding an index column will improve the performance if you're working in a larger table.
 Sort table and add index to the table. Indexing a big table will improve performance. Then add a new blank query.
  
-<img src="/img/runningTotal.jpg" width="600px" style="border: 1px solid #ee6e73;"/>
+<img src="/img/runningTotal.jpg" width="450px" style="border: 1px solid #ee6e73;"/>
 
 Open Blank query from "Advanced Editor" and replace the code by
 
