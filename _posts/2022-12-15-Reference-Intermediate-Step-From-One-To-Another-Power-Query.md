@@ -18,7 +18,6 @@ A better solution is to add a metadata step next to the “FinalStep” and call
 
 <img src="/img/Intermediate_DataTable.jpg" width="1000px" style="border: 1px solid #ee6e73;"/>
 
-
 The “meta” expression stores the metadata of reference step (“RefStep”) which you can call from any query.  
 Assume we have another query from where we would like to fetch data from “RefStep” step from main query, all we need to do is to reference the “StepToFetch” variable.
  
