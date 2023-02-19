@@ -1,6 +1,6 @@
 ---
 layout: post
-title: VLOOKUP Equivalent In DAX
+title: VLOOKUPs Equivalent In DAX
 ---
 
 ## **RELATED and different types of LOOKUPVALUE () functions in DAX**

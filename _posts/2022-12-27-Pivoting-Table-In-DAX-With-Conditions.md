@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Pivot data with filetrs and conditions using DAX
+title: Pivot Table with filters and If conditions using DAX
 #subtitle: 
 ---
 
-Assuming we have bank balances categorized by bank and account type, our goal is to aggregate the balance by BankGroup for each AccountType based on a specific criterion. The criterion involves summarizing the raw data by bank group and account type, and then adding up only the positive balances for each bank group.
+Assuming we have a data of bank balances by bank and account type, our goal is to aggregate the balance by BankGroup for each AccountType based on a specific criterion. The criterion involves summarizing the raw data by bank group and account type, and then adding up only the positive balances for each bank group.
 
 [Picture]
 
@@ -86,7 +86,7 @@ VAR CombineTable =
     )
 ```
 
-### **Step 4: Step 4: Finally, Summarize the union table by BankGroup and RETURN final output.**
+### **Step 4: Step 4: Finally, Summarize the unioned table by BankGroup and RETURN final output.**
 ```
 RETURN
     SUMMARIZE (
@@ -107,7 +107,7 @@ The above code will return following output which identical to Pivot Table in Ex
 
 [Picture]
 
-## Here is a complete code as a one function: 
+## Here is a complete code in a single DAX: 
 
 ```
 Non-Negative Bank Balance By Account Type = 

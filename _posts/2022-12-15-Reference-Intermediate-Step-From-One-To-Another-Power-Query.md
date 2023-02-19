@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Reference specific step from another query
+title: Reference a specific step from another query in Power BI
 # subtitle: 
 ---
 
