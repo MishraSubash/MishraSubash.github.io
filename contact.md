@@ -5,7 +5,7 @@ css: "/css/contact.css"
 googlefonts: Lobster
 ---
 
----------- Pascal: This page is now unused, it's just here for example material ------------
+---------- Mishra: This page is now unused, it's just here for example material ------------
 
 Just kidding, you can't contact me here.
 
