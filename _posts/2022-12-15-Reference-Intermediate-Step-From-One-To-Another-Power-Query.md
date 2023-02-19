@@ -22,7 +22,7 @@ The “meta” expression stores the metadata of reference step (“RefStep”) 
 Assume we have another query from where we would like to fetch data from “RefStep” step from main query, all we need to do is to reference the “StepToFetch” variable.
  
 
-<img src="/img/intermediate_fetchStep.jpg" width="1000px" style="border: 1px solid #ee6e73;"/>
+<img src="/img/inter.jpg" width="1000px" style="border: 1px solid #ee6e73;"/>
 
 ### Append a step from another query 
 
