@@ -42,9 +42,9 @@ in
 
 You want to replace paramenters of ```fnRollingSum``` based on your data. 
 for instance, 
-      - ```#"Added Index"``` : previous step of a table* 
-      - ```Amount```: Column you want to compute running total of*
-      - ```[Index]```: Index column [ Index clolumn will inprove performance]*
+- ```#"Added Index"``` : previous step of a table 
+- ```Amount```: Column you want to compute running total of
+- ```[Index]```: Index column [Index clolumn will inprove performance]
 
 ### **Rolling Total in DAX**
 
