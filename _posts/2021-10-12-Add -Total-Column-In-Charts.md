@@ -18,7 +18,7 @@ UNION (
 ```
 
 ### Step 2: Create following two measures.
-*Replace COUNTX by SUMX if you want to sum column values*
+*Replace COUNTX by SUMX (of course need to update SUMX arguments) if you want to sum column values*
 ```
 MeasureOne = 
 COUNTX (
