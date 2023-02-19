@@ -3,8 +3,8 @@
 Adding a total column in column or bar chart in Power BI without downloading custom visuals is quite tricking and intimidating. This seems like a pretty easy task to do but in reality, that is not the case. In this article, I will walk you though with an example to add a total column in column/bar chart.
 Let’s take an simple example, assume we have the following one column data.
  
+<img src="/img/total_datatable.jpg" width="200px" style="border: 1px solid #ee6e73;" />
 
-[Image](https://github.com/MishraSubash/MishraSubash.github.io/blob/main/img/total_datatable.jpg?raw=true)
 
 ### Step 1: Create a New Table using DAX to add a new row “Total” (name as you want)
 ```
