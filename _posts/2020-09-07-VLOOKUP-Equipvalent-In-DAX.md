@@ -16,7 +16,8 @@ We are going to explore some use cases of RELATED() and LOOKUPVALUE() function i
 Please refer to this PBIX file for hands-on example.
 We use the following model as an example.
 
-[dataModel]
+<img src="/img/Vlookup_FirstTable.jpg" width="600px" style="border: 1px solid #ee6e73;"/>
+
 
 - Calculated Column in the FactData table. 
                    ```
@@ -69,4 +70,4 @@ CALCULATE (
 )
 ```
 
-Downlaod pbix file here ![LOOKUPVALUE.pbix]()
+Downlaod pbix file here [LOOKUPVALUE.pbix](https://github.com/MishraSubash/MishraSubash.github.io/blob/main/support/LOOKUPVALUE.pbix?raw=true)
