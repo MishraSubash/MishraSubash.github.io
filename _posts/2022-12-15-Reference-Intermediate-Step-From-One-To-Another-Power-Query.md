@@ -16,19 +16,19 @@ Let’s say we want to reference “RefStep” table data in another query in th
 A better solution is to add a metadata step next to the “FinalStep” and call that meta step from another query.
  
 
-<img src="/img/Intermediate_DataTable.jpg" width="550px" style="border: 1px solid #ee6e73;"/>
+<img src="/img/Intermediate_DataTable.jpg" width="1000px" style="border: 1px solid #ee6e73;"/>
 
 
 The “meta” expression stores the metadata of reference step (“RefStep”) which you can call from any query.  
 Assume we have another query from where we would like to fetch data from “RefStep” step from main query, all we need to do is to reference the “StepToFetch” variable.
  
 
-<img src="/img/intermediate_fetchStep.jpg" width="550px" style="border: 1px solid #ee6e73;"/>
+<img src="/img/intermediate_fetchStep.jpg" width="1000px" style="border: 1px solid #ee6e73;"/>
 
 ### Append a step from another query 
 
 Assume you want to append intermediate step (“RefStep” from DataTable table) from one query to another query. Here’s how you easily append any intermediate step with another query or as a new query.
 
-<img src="/img/Intermediate_finalStep.jpg" width="550px" style="border: 1px solid #ee6e73;"/>
+<img src="/img/Intermediate_finalStep.jpg" width="1000px" style="border: 1px solid #ee6e73;"/>
 
 Download PBIX file [Reference_A_Step.pbix](https://github.com/MishraSubash/MishraSubash.github.io/blob/main/support/ReferenceStep_To_AnotherQuery.pbix?raw=true)
