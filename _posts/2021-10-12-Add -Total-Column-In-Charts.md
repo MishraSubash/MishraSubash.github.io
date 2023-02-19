@@ -4,7 +4,7 @@ Adding a total column in column or bar chart in Power BI without downloading cus
 Let’s take an simple example, assume we have the following one column data.
  
 
-[](./img/total_datatable.jpg)
+![Image](./img/total_datatable.jpg)
 
 ### Step 1: Create a New Table using DAX to add a new row “Total” (name as you want)
 ```
