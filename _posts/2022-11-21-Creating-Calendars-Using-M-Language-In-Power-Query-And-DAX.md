@@ -12,7 +12,8 @@ There are several different methods of creating a calendar in Power BI. In this 
  
 
 ### **Create calendar using DAX**
-```DIM_Calendar = 
+```
+DIM_Calendar = 
 	    ADDCOLUMNS(
 	        CALENDAR(DATE (2021, 1, 1), DATE (2022, 12, 31)),
 	        "Day Name",FORMAT([Date],"DDDD"),
