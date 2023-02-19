@@ -18,7 +18,7 @@ There are several different methods of creating a calendar in Power BI. In this 
 	        "Day Name",FORMAT([Date],"DDDD"),
 	        "Day of Week",(WEEKDAY([Date],1)),
 	        "Day of Month",DAY([Date]),
-	        "Week",DATE(YEAR([Date]),MONTH([Date]),DAY([Date]))-(WEEKDAY([Date],1)-1),
+	        "Week", DATE(YEAR([Date]),MONTH([Date]),DAY([Date]))-(WEEKDAY([Date],1)-1),
 	        "Week Name", "Week of " & DATE(YEAR([Date]),MONTH([Date]),DAY([Date]))-(WEEKDAY([Date],1)-1),
 	        "Week of Year", WEEKNUM([Date],1),
 	        "Month", DATE(YEAR([Date]),MONTH([Date]),1),
@@ -26,11 +26,11 @@ There are several different methods of creating a calendar in Power BI. In this 
 	        "Month of Year", MONTH([Date]),
 	        "Month_Year", MONTH([Date]) &"_" & YEAR([Date]),
 	        "Month Year Name", FORMAT([Date],"MMM") & " " & YEAR([Date]),
-	        "Month Year Name Sort",(100*YEAR([Date])+MONTH([Date])),
-	        "Quarter",DATE(YEAR([Date]),SWITCH(ROUNDUP(DIVIDE(MONTH([Date]),3,1),0),1,1,2,4,3,7,4,10),1),
+	        "Month Year Name Sort", (100*YEAR([Date])+MONTH([Date])),
+	        "Quarter", DATE(YEAR([Date]),SWITCH(ROUNDUP(DIVIDE(MONTH([Date]),3,1),0),1,1,2,4,3,7,4,10),1),
 	        "Quarter Name", "Q" & ROUNDUP(MONTH([Date])/3,0),
 	        "Quarter Year Name", "Q" & ROUNDUP(MONTH([Date])/3,0) & " " & YEAR([Date]),
-	        "Year",YEAR([Date])
+	        "Year", YEAR([Date])
 	    )
 ```
 ### **Create Calendar in M-Language in Power Query**
