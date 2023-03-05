@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Power BI
+title: PowerBI
 ---
 
 
