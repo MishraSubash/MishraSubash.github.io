@@ -189,5 +189,5 @@ RETURN
             )
     )
 ```
-Pivot in Excel [Data_In-Excel.xlsx](https://github.com/MishraSubash/MishraSubash.github.io/blob/main/support/RawData.xlsx?raw=true)
-Download PBIX file [Pivot_In_DAX.pbix](https://github.com/MishraSubash/MishraSubash.github.io/blob/main/support/PivotWithDAX.pbix?raw=true)
+
+Download PBIX file [PivotDataWithDAX.pbix](https://github.com/MishraSubash/MishraSubash.github.io/blob/main/support/PivotWithDAX.pbix?raw=true)
