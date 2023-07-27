@@ -10,7 +10,7 @@ Expanding data rows between dates by each day in Power Query is a useful techniq
 Imagine, we have data table without date column, but you want to expand data between custom data ranges. 
 
 
-<img src="/img/Table_Fig_1.jpg" width="550px" style="border: 1px solid #ee6e73;"/>
+<img src="/img/Table_Fig_1.jpg" width="500px" style="border: 1px solid #ee6e73;"/>
 
 Step 1: Create two date functions in which you want to expand data between. (Function is not required if you want to embed dates in M-code). For this example, I am going to create following two date functions: 
 a.	First Day of Previous Month: 
@@ -48,23 +48,23 @@ IMPORTANT: Date inside the `#date()` function is just a format parameter. Regard
 
 Step3: Expand lists values as “Expand to New Rows”
 
-<img src="/img/Expand_as_rows_between_dates_gig_3.jpg" width="500px" style="border: 1px solid #ee6e73;"/>
+<img src="/img/Expand_as_rows_between_dates_gig_3.jpg" width="600px" style="border: 1px solid #ee6e73;"/>
 
 **Condition 2:** 
 Assume, a following data table. Make sure both dates columns are in date format
 
-<img src="/img/DataTable_Fig_4.jpg" width="500px" style="border: 1px solid #ee6e73;"/>
+<img src="/img/DataTable_Fig_4.jpg" width="600px" style="border: 1px solid #ee6e73;"/>
 
 Next, Add a new custom column and give an appropriate name. I am going to name it as “Date” and paste following code in formula bar. 
 ```
 { Number.From([StartDate])..Number.From([EndDate])}
 ```
 
-<img src="/img/Custom_Col_fig_5.jpg" width="500px" style="border: 1px solid #ee6e73;"/>
+<img src="/img/Custom_Col_fig_5.jpg" width="600px" style="border: 1px solid #ee6e73;"/>
 
 Above step will add a Date column with lists value. Expand column selecting “Expand to New Rows”
 
-<img src="/img/Final_Output_Fig_6.jpg" width="500px" style="border: 1px solid #ee6e73;"/>
+<img src="/img/Final_Output_Fig_6.jpg" width="700px" style="border: 1px solid #ee6e73;"/>
 
 This will expand original into rows for each date between StartDate and EndDate. Make sure you format date value to Date data type. 
 
