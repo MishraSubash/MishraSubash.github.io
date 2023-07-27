@@ -15,5 +15,5 @@ title: Power BI
 - [VLOOKUPs Equivalent In DAX](https://mishrasubash.github.io/2020-09-07-VLOOKUP-Equipvalent-In-DAX)
 - [Calculating Running Total In Power Query and DAX](https://mishrasubash.github.io/2019-12-05-Computing-Running-Totals-In-Power-Query-And-In-DAX)
 - [Expand Data Between Dates In power Query](https://mishrasubash.github.io/2023-02-19-Expand-Data-Between-Dates)
-- [SampleDashboard.pbix](https://github.com/MishraSubash/MishraSubash.github.io/blob/main/support/Sample_Dashbaord_With_DAX.pbix?raw=true)
+- [SampleDashboard.pbix](https://github.com/MishraSubash/MishraSubash.github.io/raw/main/support/Sample_Dashbaord_With_DAX.pbix)
 
