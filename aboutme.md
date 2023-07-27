@@ -6,7 +6,7 @@ title: About me
 ## 💫 **Subash Mishra**
 - Data Scientist & Big Data Engineer
 
-I am an experienced data scientist and big data engineer with a passion for turning data into actionable insights. With over 6 years of experience in the field, I have a proved track record of delivering impactful solutions for a variety of industries. I have a unique blend of technical skills in statistics, Machine Learning & Artificial Intelligence, computer science, FinTech, and big data technologies, combined with an ability to effectively communicate complex technical concepts. I excel at designing, building, and maintaining complex data visualization reports, scalable data pipelines and highly available data solutions. As a lifelong learner, I stay up-to-date with the latest industry developments and is always seeking new challenges to expand my skills and knowledge.
+I am a data scientist and big data engineer by profession with a passion for turning data into actionable insights. With over 7 plus years of experience in the field, I have a proved track record of delivering impactful solutions for a variety of industries. I have a unique blend of technical skills in statistics, Machine Learning & Artificial Intelligence, computer science, FinTech, and big data technologies, combined with an ability to effectively communicate complex technical concepts. I excel at designing, building, and maintaining complex data visualization reports, scalable data pipelines and highly available data solutions. As a lifelong learner, I stay up-to-date with the latest industry developments and is always seeking new challenges to expand my skills and knowledge.
 
 ### 💻 Tech Stack:
 
