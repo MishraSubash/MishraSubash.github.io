@@ -4,11 +4,9 @@ title: Working with Calendar in Power BI
 #subtitle:
 ---
 
-Creating a calendar in Power BI is an important step when working with time intelligence functions and cross-join the fact table with the calendar to forward fill values to gain daily granularity. A calendar table is essentially a table that contains a complete set of dates for a given time period and is typically used as the basis for time-related calculations in Power BI.
+A calendar table is a fundamental and essential component of a Power BI data model. Its main purpose is to provide a comprehensive and consistent date range, enabling efficient time-based analysis and reporting within Power BI. By having a calendar table, users can easily visualize and understand trends, patterns, and performance over time. It allows for seamless date-based filtering, grouping, and aggregations, making it simpler to generate insightful visuals and measures. Additionally, the calendar table simplifies the creation of custom date hierarchies, such as year, quarter, month, and day, ensuring users can easily drill down or roll up data as needed. Overall, a calendar table forms the backbone of time-intelligent data analysis, offering a crucial foundation for time-based reporting and enhancing the effectiveness of Power BI dashboards and reports.
 
-You can use the time intelligence functions in Power BI, such as TOTALYTD or SAMEPERIODLASTYEAR, to perform calculations based on the dates in the calendar table.
-
-There are several different methods of creating a calendar in Power BI. In this article, we are exploring specifically two ways to create a calendar using DAX and M-Language in Power Query.
+There are several different methods of creating a calendar in Power BI. In this article, we are exploring specifically two ways to create a calendar table in the Power BI data model using DAX and M-Language.
  
 
 ### **Create calendar using DAX**
