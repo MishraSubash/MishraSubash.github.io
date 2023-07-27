@@ -1,193 +1,72 @@
 ---
 layout: post
-title: Pivot Table with filters and If conditions using DAX
+title: How to expand data rows between dates by each day in Power Query?
 #subtitle: 
 ---
 
-Assuming We have bank balance data by bank and account type. Our goal is to aggregate the balance by BankGroup for each AccountType based on a specific criterion. The criterion involves summarizing the raw data by bank group and account type, and then adding up only the positive balances for each bank group.
+Expanding data rows between dates by each day in Power Query is a useful technique for analyzing time-based data. In this article, we are exploring couple different techniques to expand data rows by each day in Power Query.
 
-<img src="/img/Pivot_RawBankBalance.jpg" width="550px" style="border: 1px solid #ee6e73;"/>
+**Condition1:** 
+Imagine, we have data table without date column, but you want to expand data between custom data ranges. 
 
 
+<img src="/img/Table_Fig_1.jpg" width="550px" style="border: 1px solid #ee6e73;"/>
 
-To achieve this, we first need to pivot the data by BankGroup and AccountType. Then, we only sum positive balances which means replacing negative balances by 0 or write a conditional statement to sume up only positive values. The data would look like this: 
-
-<img src="/img/Pivot_FirstPivot.jpg" width="1200px" style="border: 1px solid #ee6e73;"/>
-
-Again, re-run one more pivot table to aggregate bank balance by bank group. The final output would be 
-
-<img src="/img/Pivot_FinalOutPut.jpg" width="350px" style="border: 1px solid #ee6e73;"/>
-
-If you’re following so far, we have understood the problem statement as well as solution workflows. Now, we are going to write some DAX functions to perform pivot table operation as mentioned above. 
-
-### **Step 1: Group raw data by Account Type.**
+Step 1: Create two date functions in which you want to expand data between. (Function is not required if you want to embed dates in M-code). For this example, I am going to create following two date functions: 
+a.	First Day of Previous Month: 
 ```
-VAR CheckingData =
-    FILTER (
-        'DataTable',
-        'DataTable'[AccountType] = "Checking"
-    )
-VAR SavingData =
-    FILTER (
-        'DataTable',
-        'DataTable'[AccountType] = "Saving"
-    )
+(FirstDayOfPreviousMonth as date) =>
+let
+    #"First Day of previous Month" = Date.StartOfMonth(Date.AddMonths(DateTime.Date(DateTime.LocalNow()), -1))
+in
+    #"First Day of previous Month"
 ```
-
-### **Step 2: Perform Pivot operation for each group and treat negative balance using IF() operation and save it as new VAR.**
+b.	Last Day of Previous Month:
 
 ```
-VAR PositiveCheckingBalance =
-    CALCULATETABLE (
-        SUMMARIZE (
-            'DataTable',
-            'DataTable'[BankGroup],
-            "Bank Balance",
-                IF (
-                    SUM ( 'DataTable'[Balance] ) <= 0,
-                    0,
-                    SUM ( 'DataTable'[Balance] )
-                )
-        ),
-        KEEPFILTERS ( CheckingData )
-    ) 
-
-// Sum positive balance for Saving AccountType  
-VAR PositiveSavingBalance =
-    CALCULATETABLE (
-        SUMMARIZE (
-            'DataTable',
-            'DataTable'[BankGroup],
-            "Bank Balance",
-                IF (
-                    SUM ( 'DataTable'[Balance] ) <= 0,
-                    0,
-                    SUM ( 'DataTable'[Balance] )
-                )
-        ),
-        KEEPFILTERS ( SavingData )
-    )
-
+(LastDayOfPreviousMonth as date) =>
+let
+    #"Last Day of Previous Month" = Date.EndOfMonth(Date.AddMonths(DateTime.Date(DateTime.LocalNow()), -1))
+in
+   #"Last Day of Previous Month"
 ```
-
-### **Step 3: Append PositiveCheckingBalance and PositiveSavingBalance save appended table as new VAR.**
+Save Function a as FirstDayofPreviousMonth and function b as LastDayOfPreviousMonth
+Step 2: Add new column as Date and paste following code in formula box 
+```	
+ List.Transform({
+    Number.From(
+        FirstDayofPreviousMonth(#date(2023,2,2))).. 
+    Number.From(
+        LastDayOfPreviousMonth(#date(2023,2,2)))}, 
+    each  Date.From(_)
+              )
 ```
-VAR CombineTable =
-    // SELECTCOLUMN() function keeps column in specific order
-    UNION (
-        SELECTCOLUMNS (
-            PositiveCheckingBalance,
-            "Bank Group", 'DataTable'[BankGroup],
-            "Bank Balance", [Bank Balance]
-        ),
-        SELECTCOLUMNS (
-            PositiveSavingBalance,
-            "Bank Group", [BankGroup],
-            "Bank Balance", [Bank Balance]
-        )
-    )
-```
+IMPORTANT: Date inside the `#date()` function is just a format parameter. Regardless of what value you supply, function will generates dates based on original function.
 
-### **Step 4: Step 4: Finally, Summarize the unioned table by BankGroup and RETURN final output.**
-```
-RETURN
-    SUMMARIZE (
-        CombineTable,
-        [Bank Group],
-        "Bank Balance",
-            SUMX (
-                FILTER (
-                    CombineTable,
-                    [Bank Group]
-                        = EARLIER ( [Bank Group] )
-                ),
-                [Bank Balance]
-            )
-    )
-```
-The above code will return following output which identical to Pivot Table in Excel. 
 
-<img src="/img/Pivot_DaxFinalOutput.jpg" width="350px" style="border: 1px solid #ee6e73;"/>
+<img src="/img/Custom_Col_Fig_2.jpg" width="1200px" style="border: 1px solid #ee6e73;"/>
 
-## Here is a complete code in a single DAX: 
+Step3: Expand lists values as “Expand to New Rows”
 
-```
-Non-Negative Bank Balance By Account Type = 
-//Separate data by Account Type 
-VAR CheckingData =
-    FILTER (
-        'DataTable',
-        'DataTable'[AccountType] = "Checking"
-    )
-VAR SavingData =
-    FILTER (
-        'DataTable',
-        'DataTable'[AccountType] = "Saving"
-    )
+<img src="/img/Expand_as_rows_between_dates_gig_3.jpg" width="350px" style="border: 1px solid #ee6e73;"/>
 
-// Pivoting Data 
-// SUM Bank Balance if balance is positive for each account type. 
-// Sum positive balance for Checking AccountType 
-VAR PositiveCheckingBalance =
-    CALCULATETABLE (
-        SUMMARIZE (
-            'DataTable',
-            'DataTable'[BankGroup],
-            "Bank Balance",
-                IF (
-                    SUM ( 'DataTable'[Balance] ) <= 0,
-                    0,
-                    SUM ( 'DataTable'[Balance] )
-                )
-        ),
-        KEEPFILTERS ( CheckingData )
-    ) 
-// Sum positive balance for Saving AccountType  
-VAR PositiveSavingBalance =
-    CALCULATETABLE (
-        SUMMARIZE (
-            'DataTable',
-            'DataTable'[BankGroup],
-            "Bank Balance",
-                IF (
-                    SUM ( 'DataTable'[Balance] ) <= 0,
-                    0,
-                    SUM ( 'DataTable'[Balance] )
-                )
-        ),
-        KEEPFILTERS ( SavingData )
-    ) 
-// Append Calcualted Table and save it as new VAR because 
-// we will have to aggregate balance by Bank Group later 
-VAR CombineTable =
-    // SELECTCOLUMN() function keeps column in specific order
-    UNION (
-        SELECTCOLUMNS (
-            PositiveCheckingBalance,
-            "Bank Group", 'DataTable'[BankGroup],
-            "Bank Balance", [Bank Balance]
-        ),
-        SELECTCOLUMNS (
-            PositiveSavingBalance,
-            "Bank Group", [BankGroup],
-            "Bank Balance", [Bank Balance]
-        )
-    ) 
-// Pivot data to aggregate balance by BankGroup
-RETURN
-    SUMMARIZE (
-        CombineTable,
-        [Bank Group],
-        "Bank Balance",
-            SUMX (
-                FILTER (
-                    CombineTable,
-                    [Bank Group]
-                        = EARLIER ( [Bank Group] )
-                ),
-                [Bank Balance]
-            )
-    )
-```
+**Condition 2:** 
+Assume, a following data table. Make sure both dates columns are in date format
 
-Download PBIX file [PivotDataWithDAX.pbix](https://github.com/MishraSubash/MishraSubash.github.io/blob/main/support/PivotWithDAX.pbix?raw=true)
+<img src="/img/DataTable_Fig_4.jpg" width="350px" style="border: 1px solid #ee6e73;"/>
+
+Next, Add a new custom column and give an appropriate name. I am going to name it as “Date” and paste following code in formula bar. 
+```{ Number.From([StartDate])..Number.From([EndDate])}```
+
+<img src="/img/Custom_Col_fig_5.jpg" width="350px" style="border: 1px solid #ee6e73;"/>
+
+Above step will add a Date column with lists value. Expand column selecting “Expand to New Rows”
+<img src="/img/Final_Output_Fig_6.jpg" width="350px" style="border: 1px solid #ee6e73;"/>
+
+This will expand original into rows for each date between StartDate and EndDate. Make sure you format date value to Date data type. 
+
+Bonus: 
+Asumme you have a data that has maturity date and need to expand date a day before maturity date. You will need to subtract no of days from the EndDate (Maturity Date) as shown in the below code. 
+```{ Number.From([StartDate])..Number.From([EndDate])-1}```
+
+Download PBIX file [ExpandDataBetweenDates.pbix](https://github.com/MishraSubash/MishraSubash.github.io/blob/main/support/ExpandDataBetweenDates.pbix?raw=true)
