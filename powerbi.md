@@ -14,5 +14,6 @@ title: Power BI
 - [Adding a new “Total” column in Power BI Charts](https://mishrasubash.github.io/2021-10-12-Add-Total-Column-In-Charts)
 - [VLOOKUPs Equivalent In DAX](https://mishrasubash.github.io/2020-09-07-VLOOKUP-Equipvalent-In-DAX)
 - [Calculating Running Total In Power Query and DAX](https://mishrasubash.github.io/2019-12-05-Computing-Running-Totals-In-Power-Query-And-In-DAX)
+- [Expand Data Between Dates In power Query](https://mishrasubash.github.io/2023-02-19-Expand-Data-Between-Dates)
 
 
