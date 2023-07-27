@@ -34,7 +34,9 @@ DIM_Calendar =
 ```
 ### **Create Calendar in M-Language in Power Query**
 Change Start Date as needed on the `Source` step. By default, it returns start date from Jan 1st 2019. 
+
 ```
+[
 let
     Source = List.Dates(#date(2019, 01, 01), Duration.Days(DateTime.Date(DateTime.FixedLocalNow()) - #date(2019, 01, 01)) + 1, #duration(1, 0, 0, 0)),
     InvokeDates = Source,
@@ -55,4 +57,5 @@ let
     #"Changed Type" = Table.TransformColumnTypes(YearQuarter, {{"DayName", Int64.Type}, {"YearMonth", type text}, {"YearQuarter", type text}})
 in
     #"Changed Type"
+]
 ```
