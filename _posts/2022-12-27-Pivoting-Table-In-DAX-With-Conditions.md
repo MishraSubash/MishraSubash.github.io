@@ -4,13 +4,13 @@ title: Pivot Table with filters and If conditions using DAX
 #subtitle: 
 ---
 
-Assuming we have a data of bank balances by bank and account type, our goal is to aggregate the balance by BankGroup for each AccountType based on a specific criterion. The criterion involves summarizing the raw data by bank group and account type, and then adding up only the positive balances for each bank group.
+Assuming We have bank balance data by bank and account type. Our goal is to aggregate the balance by BankGroup for each AccountType based on a specific criterion. The criterion involves summarizing the raw data by bank group and account type, and then adding up only the positive balances for each bank group.
 
 <img src="/img/Pivot_RawBankBalance.jpg" width="550px" style="border: 1px solid #ee6e73;"/>
 
 
 
-In order to do that, first we need to pivot data by bankgroup and accountype. Then we only sum positive balance which means replace negative balance by 0 then sum it up. The data would look like this: 
+To achieve this, we first need to pivot the data by BankGroup and AccountType. Then, we only sum positive balances which means replacing negative balances by 0 or write a conditional statement to sume up only positive values. The data would look like this: 
 
 <img src="/img/Pivot_FirstPivot.jpg" width="1200px" style="border: 1px solid #ee6e73;"/>
 
@@ -18,7 +18,7 @@ Again, re-run one more pivot table to aggregate bank balance by bank group. The 
 
 <img src="/img/Pivot_FinalOutPut.jpg" width="350px" style="border: 1px solid #ee6e73;"/>
 
-If you’re following so far, we have understood the problem statement as well as solution workflows. Now, we are going to write a single DAX function to perform pivot table operation as mentioned above. 
+If you’re following so far, we have understood the problem statement as well as solution workflows. Now, we are going to write some DAX functions to perform pivot table operation as mentioned above. 
 
 ### **Step 1: Group raw data by Account Type.**
 ```
